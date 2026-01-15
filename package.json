@@ -3,7 +3,7 @@
     "publisher": "karlm",
     "displayName": "Always New",
     "description": "Ensures VS Code always has an editor buffer open. Essential for vscode-neovim users.",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "license": "MIT",
     "repository": {
         "type": "git",
