@@ -1,0 +1,36 @@
+{
+    "name": "always-new",
+    "publisher": "karlm",
+    "displayName": "Always New",
+    "description": "Ensures VS Code always has an editor buffer open. Essential for vscode-neovim users.",
+    "version": "0.0.2",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/krlmrr/dotfiles"
+    },
+    "engines": {
+        "vscode": "^1.80.0"
+    },
+    "icon": "icon.png",
+    "categories": ["Other"],
+    "activationEvents": ["onStartupFinished"],
+    "main": "./out/extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "alwaysNew.closeEditor",
+                "title": "Close Editor (Always New)"
+            }
+        ]
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./"
+    },
+    "devDependencies": {
+        "@types/vscode": "^1.80.0",
+        "typescript": "^5.0.0"
+    }
+}
