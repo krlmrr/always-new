@@ -23,6 +23,30 @@ export function activate(context: vscode.ExtensionContext) {
             ensureBuffer();
         })
     );
+
+    // Close empty untitled buffers when a real file is opened
+    context.subscriptions.push(
+        vscode.window.onDidChangeActiveTextEditor((editor) => {
+            if (editor && !editor.document.isUntitled) {
+                closeEmptyUntitled();
+            }
+        })
+    );
+}
+
+async function closeEmptyUntitled() {
+    const tabs = vscode.window.tabGroups.all.flatMap(g => g.tabs);
+    for (const tab of tabs) {
+        if (tab.input instanceof vscode.TabInputText) {
+            const uri = tab.input.uri;
+            if (uri.scheme === 'untitled') {
+                const doc = vscode.workspace.textDocuments.find(d => d.uri.toString() === uri.toString());
+                if (doc && doc.getText() === '') {
+                    await vscode.window.tabGroups.close(tab);
+                }
+            }
+        }
+    }
 }
 
 function ensureBuffer() {
