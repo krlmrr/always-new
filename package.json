@@ -3,7 +3,7 @@
     "publisher": "karlm",
     "displayName": "Always New",
     "description": "Ensures VS Code always has an editor buffer open. Essential for vscode-neovim users.",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "license": "MIT",
     "repository": {
         "type": "git",
@@ -13,8 +13,12 @@
         "vscode": "^1.80.0"
     },
     "icon": "icon.png",
-    "categories": ["Other"],
-    "activationEvents": ["onStartupFinished"],
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onStartupFinished"
+    ],
     "main": "./out/extension.js",
     "contributes": {
         "commands": [
